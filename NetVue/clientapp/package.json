@@ -1,0 +1,23 @@
+{
+  "name": "clientapp",
+  "description": "Nuxt.js TypeScript project",
+  "version": "2.14.4",
+  "private": true,
+  "dependencies": {
+    "@nuxtjs/axios": "5.12.2",
+    "@nuxt/typescript-runtime": "1.0.0",
+    "nuxt": "2.14.4",
+    "nuxt-property-decorator": "2.7.2",
+    "vuex-class": "0.3.2"
+  },
+  "scripts": {
+    "dev": "nuxt-ts --port 6666",
+    "build": "nuxt-ts build --target static && nuxt-ts export",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts build"
+  },
+  "devDependencies": {
+    "@nuxt/types": "2.14.4",
+    "@nuxt/typescript-build": "2.0.2"
+  }
+}
