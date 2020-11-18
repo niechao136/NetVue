@@ -12,7 +12,7 @@ WORKDIR /src
 # 拷贝 NetVue/NetVue.csproj 项目文件到容器中的 /src/NetVue/ 目录
 COPY ["NetVue/NetVue.csproj", "NetVue/"]
 # 执行 dotnet restore 命令，相当于平时用 vs 还原 nuget 包
-RUN dotnet restore "NetVue/NetVue.csproj"
+RUN dotnet restore "NetVue/NetVue.csproj" -s "https://repo.huaweicloud.com/repository/nuget/v3/index.json"
 # 拷贝当前目录的文件到到容器的 /src 目录
 COPY . .
 # 设置容器的工作目录为 /src/NetVue
