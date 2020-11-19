@@ -1,4 +1,4 @@
-﻿.idea
+﻿NetVue/clientapp
 NetVue/bin
 NetVue/obj
 Model/bin
@@ -11,3 +11,4 @@ DAL/bin
 DAL/obj
 BAL/bin
 BAL/obj
+.idea
