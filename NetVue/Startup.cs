@@ -43,7 +43,7 @@ namespace NetVue
                 if (env.IsDevelopment())
                 {
                     // 本地调试配置，不要 commit
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:6666");
+                    // spa.UseProxyToSpaDevelopmentServer("http://localhost:6666");
                 }
             });
         }

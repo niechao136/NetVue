@@ -1,14 +1,28 @@
-import {
-    Store
-} from "vuex";
-import {
-    initializeStores
-} from "~/utils";
+import type { Context } from '@nuxt/types'
+import type { GetterTree, ActionTree, MutationTree } from 'vuex'
 
-const initializer = (store: Store<any>) => initializeStores(store);
+export interface RootState {
+  description: string
+}
 
-export const plugins = [
-    initializer
-];
+export const state = (): RootState => ({
+  description: "I'm defined as an initial state"
+})
 
-export * from "~/utils/store-accessor";
+export const getters: GetterTree<RootState, RootState> = {
+  reversedName: (state: RootState): string => state.description.split('').reverse().join('')
+}
+
+export const MutationType = {
+  CHANGE_DESCRIPTION: 'changeDescription'
+}
+
+export const mutations: MutationTree<RootState> = {
+  [MutationType.CHANGE_DESCRIPTION]: (state: RootState, newDescription: string) => { state.description = newDescription }
+}
+
+export const actions: ActionTree<RootState, RootState> = {
+  nuxtServerInit ({ commit }: any, _context: Context) {
+    commit(MutationType.CHANGE_DESCRIPTION, "I'm defined by server side")
+  }
+}

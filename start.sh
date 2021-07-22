@@ -1,0 +1,1 @@
+docker run -p 80:80 -d --restart=always --name vue_app net_vue 
