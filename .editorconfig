@@ -1,3 +1,6 @@
-﻿[*.*]
+﻿[*.cs]
 indent_size = 4
+indent_style = space
+[{*.vue,*.ts,*.json,*.scss}]
+indent_size = 2
 indent_style = space
