@@ -1,8 +1,13 @@
+using BAL;
+using DAL;
+using IBAL;
+using IDAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Serialization;
 
 namespace NetVue
 {
@@ -13,8 +18,18 @@ namespace NetVue
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().SetCompatibilityVersion(CompatibilityVersion.Latest);
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
             // In production, the vue files will be served from this directory
-            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "wwwroot"; });
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "wwwroot";
+            });
+
+            services.AddTransient<IDAL_User, DAL_User>();
+            services.AddTransient<IBAL_User, BAL_User>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
