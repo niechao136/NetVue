@@ -24,17 +24,7 @@ const config: NuxtConfig = {
     ]
   },
   loading: { color: '#0c64c1' },
-  modules: [ '@nuxtjs/proxy' ],
-  proxy: {
-    "/bing": {
-      target: "https://cn.bing.com",
-      ws: true,
-      changOrigin: true,
-      pathRewrite: {
-        "^/bing": ""
-      }
-    },
-  },
+  modules: [],
   plugins: [
     '~/plugins/truncate',
   ]
