@@ -1,4 +1,4 @@
-import type { Context, Middleware } from '@nuxt/types'
+import type {Context, Middleware} from '@nuxt/types'
 
 declare module '@nuxt/types' {
   interface Context {

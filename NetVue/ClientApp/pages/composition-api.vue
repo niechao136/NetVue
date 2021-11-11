@@ -44,10 +44,10 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, useAsync, useContext, useFetch, useMeta } from '@nuxtjs/composition-api'
+import {computed, defineComponent, ref, useAsync, useContext, useFetch, useMeta} from '@nuxtjs/composition-api'
 
-import type { RootState } from '~/store'
-import { namespace as settingStoreNamespace, SettingState, actionType } from '~/store/setting'
+import type {RootState} from '~/store'
+import {actionType, namespace as settingStoreNamespace, SettingState} from '~/store/setting'
 
 interface ToDo {
   userId: number
@@ -60,7 +60,7 @@ export default defineComponent({
   fetchOnServer: false,
   middleware: 'user-agent',
 
-  setup (_props, context) {
+  setup(_props, context) {
     const message = ref("I'm defined on data()")
     const fetchedTodos = ref<ToDo[]>([])
 
@@ -75,10 +75,12 @@ export default defineComponent({
     const asyncMessage = useAsync(() => "I'm defined on asyncData()")
     const userAgent = useAsync(() => useContext().userAgent)
 
-    const { fetchState } = useFetch(() => {
+    const {fetchState} = useFetch(() => {
       return window.fetch('https://jsonplaceholder.typicode.com/todos')
         .then(response => response.json())
-        .then((data: ToDo[]) => { fetchedTodos.value = data })
+        .then((data: ToDo[]) => {
+          fetchedTodos.value = data
+        })
     })
 
     useMeta(() => ({

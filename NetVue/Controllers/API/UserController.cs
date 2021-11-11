@@ -36,7 +36,7 @@ namespace NetVue.Controllers.API
             User user = new User
             {
                 email = data?["email"]?.ToString(),
-                password = Common.MD5String(data?["password"]?.ToString()), 
+                password = Common.MD5String(data?["password"]?.ToString()),
                 info = info.ToString()
             };
             return JsonConvert.DeserializeObject<JObject>(_ibalUser.RegisterUser(user));
@@ -54,7 +54,8 @@ namespace NetVue.Controllers.API
         [HttpPost]
         public JObject Login([FromBody] JObject data)
         {
-            Claim[] claims = {
+            Claim[] claims =
+            {
                 new Claim(ClaimTypes.Name, data?["email"]?.ToString())
             };
             SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("nechaonechaonechao"));

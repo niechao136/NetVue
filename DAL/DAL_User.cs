@@ -16,7 +16,7 @@ namespace DAL
             JObject status = new JObject();
             using NpgsqlConnection connection = PostgreSQLCommon.OpenConnection();
             const string query = @"SELECT email FROM public.user WHERE email = @email";
-            List<string> emails = connection.Query<string>(query, new {user.email}).ToList();
+            List<string> emails = connection.Query<string>(query, new { user.email }).ToList();
             if (emails.Count == 0)
             {
                 const string sql = @"INSERT INTO public.user(email, password, info) VALUES (@email, @password, @info)";
@@ -24,6 +24,7 @@ namespace DAL
                 status.Add(new JProperty("status", 1));
                 return status.ToString();
             }
+
             status.Add(new JProperty("status", 0));
             status.Add(new JProperty("msg", "email is existed"));
             return status.ToString();
@@ -54,7 +55,7 @@ namespace DAL
             JObject status = new JObject();
             using NpgsqlConnection connection = PostgreSQLCommon.OpenConnection();
             const string query = @"SELECT email FROM public.user WHERE email = @email";
-            List<string> emails = connection.Query<string>(query, new {email}).ToList();
+            List<string> emails = connection.Query<string>(query, new { email }).ToList();
             if (emails.Count == 0)
             {
                 status.Add(new JProperty("status", 0));
@@ -68,7 +69,8 @@ namespace DAL
                 email = email,
                 update_at = DateTime.Now
             };
-            const string sql = @"UPDATE public.user SET password = @password, update_at = @update_at WHERE email = @email";
+            const string sql =
+                @"UPDATE public.user SET password = @password, update_at = @update_at WHERE email = @email";
             connection.Execute(sql, user);
             status.Add(new JProperty("status", 1));
             return status.ToString();

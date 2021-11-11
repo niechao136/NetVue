@@ -1,6 +1,6 @@
 <template>
   <div>
-    Index
+    
   </div>
 </template>
 
@@ -23,9 +23,14 @@ import {MetaInfo} from "vue-meta"
   },
   created() {
     console.log("created");
-  }
+  },
+  mounted() {
+    
+  },
 })
 export default class Index extends Vue {
 
 }
 </script>
+<style lang="scss" scoped>
+</style>

@@ -1,4 +1,4 @@
-import type { Plugin } from '@nuxt/types'
+import type {Plugin} from '@nuxt/types'
 
 type Truncater = (text: string) => string
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using IBAL;
 using IDAL;
 using Model;
@@ -13,7 +14,7 @@ namespace BAL
         {
             _idalUser = idalUser;
         }
-        
+
         public string RegisterUser(User user)
         {
             return _idalUser.RegisterUser(user);
@@ -21,22 +22,22 @@ namespace BAL
 
         public User GetUserInfo(string user_id)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public List<User> GetUserList()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void UpdateUserInfo(User user)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void ChangePassword(string user_id, string password)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public string ResetPassword(string email)

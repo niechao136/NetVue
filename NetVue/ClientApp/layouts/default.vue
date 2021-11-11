@@ -27,7 +27,7 @@ export default class Layout extends Vue {
 <style lang="scss">
 body {
   margin: 0;
-  
+
   main {
     width: 100vm;
     height: 100vh;

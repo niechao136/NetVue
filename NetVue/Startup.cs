@@ -33,7 +33,8 @@ namespace NetVue
                         ValidAudience = "nechao", // Audience
                         ValidIssuer = "nechao", // Issuer，这两项和后面签发 jwt 的设置一致
                         ClockSkew = TimeSpan.Zero, // 默认允许 300s  的时间偏移量，设置为 0
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("nechaonechaonechao")) //拿到 SecurityKey
+                        IssuerSigningKey =
+                            new SymmetricSecurityKey(Encoding.UTF8.GetBytes("nechaonechaonechao")) //拿到 SecurityKey
                     };
                 });
             services.AddControllersWithViews().SetCompatibilityVersion(CompatibilityVersion.Latest);
@@ -42,10 +43,7 @@ namespace NetVue
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
             // In production, the vue files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "wwwroot";
-            });
+            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "wwwroot"; });
 
             services.AddTransient<IDAL_User, DAL_User>();
             services.AddTransient<IBAL_User, BAL_User>();
@@ -76,10 +74,8 @@ namespace NetVue
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
                 if (env.IsDevelopment())
-                {
                     // 本地调试配置，不要 commit
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:6666");
-                }
             });
         }
     }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DAL
+﻿namespace DAL
 {
     public class DAL_Article
     {

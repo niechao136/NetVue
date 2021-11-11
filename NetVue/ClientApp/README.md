@@ -1,10 +1,12 @@
 # Nuxt TypeScript starter template
 
-A [Nuxt.js](https://github.com/nuxt/nuxt.js) + [@nuxt/typescript](https://github.com/nuxt/typescript) starter project template.
+A [Nuxt.js](https://github.com/nuxt/nuxt.js) + [@nuxt/typescript](https://github.com/nuxt/typescript) starter project
+template.
 
 ## Setup
 
-Create your repository by [Use this template](https://github.com/nuxt-community/typescript-template/generate) button from [this template](https://github.com/nuxt-community/typescript-template) and clone into your local.
+Create your repository by [Use this template](https://github.com/nuxt-community/typescript-template/generate) button
+from [this template](https://github.com/nuxt-community/typescript-template) and clone into your local.
 
 Then, run below command and follow its message.
 
@@ -46,9 +48,11 @@ npm run generate #=> Then distribute /dist
 ## FAQ
 
 - Q. How about providing sample usage of "xyz" (The name of OSS which you want to use)?
-  - A. Recommend running into [create-nuxt-app](https://github.com/nuxt/create-nuxt-app). This template aims to provide a minimal sample that follows the latest version of Nuxt.js and [@nuxt/typescript](https://github.com/nuxt/typescript). 
+    - A. Recommend running into [create-nuxt-app](https://github.com/nuxt/create-nuxt-app). This template aims to
+      provide a minimal sample that follows the latest version of Nuxt.js
+      and [@nuxt/typescript](https://github.com/nuxt/typescript).
 - Q. I think the usage of Vuex is not typed enough...?
-  - A. We know! We desire the next major version of Vuex (v4) saves our bacon.
+    - A. We know! We desire the next major version of Vuex (v4) saves our bacon.
 
 ## Miss the old way of this repository?
 

@@ -45,11 +45,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
-import { mapActions, mapState } from 'vuex'
+import {MetaInfo} from 'vue-meta'
+import {mapActions, mapState} from 'vuex'
 
-import type { RootState } from '~/store'
-import { actionType, namespace as settingStoreNamespace, SettingState } from '~/store/setting'
+import type {RootState} from '~/store'
+import {actionType, namespace as settingStoreNamespace, SettingState} from '~/store/setting'
 
 interface ToDo {
   userId: number
@@ -62,14 +62,14 @@ export default Vue.extend({
   fetchOnServer: false,
   middleware: 'user-agent',
 
-  asyncData (context) {
+  asyncData(context) {
     return {
       asyncMessage: "I'm defined on asyncData()",
       userAgent: context.userAgent
     }
   },
 
-  data () {
+  data() {
     return {
       message: "I'm defined on data()",
       fetchedTodos: [] as ToDo[],
@@ -78,13 +78,15 @@ export default Vue.extend({
     }
   },
 
-  fetch () {
+  fetch() {
     return fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
-      .then((data: ToDo[]) => { this.fetchedTodos = data })
+      .then((data: ToDo[]) => {
+        this.fetchedTodos = data
+      })
   },
 
-  head (): MetaInfo {
+  head(): MetaInfo {
     return {
       title: 'Options API Demo',
       meta: [{
@@ -95,7 +97,7 @@ export default Vue.extend({
   },
 
   computed: {
-    computedMessage (): string {
+    computedMessage(): string {
       return this.message.replace('data()', 'computed()')
     },
 

@@ -44,11 +44,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, namespace, State } from 'nuxt-property-decorator'
-import { MetaInfo } from 'vue-meta'
+import {Component, namespace, State, Vue} from 'nuxt-property-decorator'
+import {MetaInfo} from 'vue-meta'
 
-import type { RootState } from '~/store'
-import { namespace as settingStoreNamespace, SettingState, actionType } from '~/store/setting'
+import type {RootState} from '~/store'
+import {actionType, namespace as settingStoreNamespace, SettingState} from '~/store/setting'
 
 interface ToDo {
   userId: number
@@ -62,18 +62,20 @@ const SettingStore = namespace(settingStoreNamespace)
 @Component({
   fetchOnServer: false,
   middleware: 'user-agent',
-  asyncData (context) {
+  asyncData(context) {
     return {
       asyncMessage: "I'm defined on asyncData()",
       userAgent: context.userAgent
     }
   },
-  fetch (this: ClassApi) {
+  fetch(this: ClassApi) {
     return fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
-      .then((data: ToDo[]) => { this.fetchedTodos = data })
+      .then((data: ToDo[]) => {
+        this.fetchedTodos = data
+      })
   },
-  head (this: ClassApi): MetaInfo {
+  head(this: ClassApi): MetaInfo {
     return {
       title: 'Class API Demo',
       meta: [{
@@ -93,7 +95,7 @@ export default class ClassApi extends Vue {
   asyncMessage = 'I will be overwritten by asyncData'
   userAgent = 'I will be overwritten by asyncData'
 
-  get computedMessage (): string {
+  get computedMessage(): string {
     return this.message.replace('data()', 'computed()')
   }
 }

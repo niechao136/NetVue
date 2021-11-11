@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace IBAL
+﻿namespace IBAL
 {
     public class IBAL_Article
     {
